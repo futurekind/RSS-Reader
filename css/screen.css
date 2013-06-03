@@ -140,3 +140,28 @@ header {
   display: block;
   cursor: pointer;
 }
+
+/* line 1, ../scss/partials/modules/_textfield.scss */
+.textfield {
+  width: 150px;
+  padding: .4em;
+  border: none;
+  vertical-align: middle;
+  outline: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: width 0.15s;
+  -moz-transition: width 0.15s;
+  -o-transition: width 0.15s;
+  transition: width 0.15s;
+}
+/* line 10, ../scss/partials/modules/_textfield.scss */
+.textfield:focus {
+  width: 220px;
+  -webkit-box-shadow: #555555 0 0 10px;
+  -moz-box-shadow: #555555 0 0 10px;
+  box-shadow: #555555 0 0 10px;
+}

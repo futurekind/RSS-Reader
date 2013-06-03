@@ -1,0 +1,14 @@
+.textfield {
+	width: 150px;
+	padding: .4em;
+	border: none;
+	vertical-align: middle;
+	outline: none;
+	@include border-radius(2px);
+	@include transition(width .15s);
+
+	&:focus {
+		width: 220px;
+		@include box-shadow(#555 0 0 10px);
+	}
+}
