@@ -1,0 +1,11 @@
+.l-tools {
+	width: 229px;
+	height: 100%;
+	padding: 10px;
+	float: left;
+	overflow-y: auto;
+
+	&:last-child {
+		margin: 0;
+	}
+}

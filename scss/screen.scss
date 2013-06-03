@@ -1,0 +1,38 @@
+@import "compass/css3";
+@import "compass/reset";
+@import "compass/utilities/general/clearfix";
+
+@import "partials/globals";
+
+
+// **********************
+// BASE
+// **********************
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	font: {
+		family: $fontHighlight;
+		size: 100%;
+	}
+	color: $colorTextHex;
+}
+
+.text-right {
+	text-align: right;
+}
+
+// **********************
+// LAYOUT
+// **********************
+@import "partials/layout/header";
+@import "partials/layout/app";
+@import "partials/layout/tools";
+@import "partials/layout/read";
+
+// **********************
+// MODULES
+// **********************
+@import "partials/modules/tools";
