@@ -6,14 +6,10 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 	<link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="css/fonts/css/icons.css" media="screen, projection" rel="stylesheet" type="text/css" />
-
-	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-
 </head>
-<body>
+<body id="js-app">
 	<header>
 		<i class="icon-rss"></i>
-		<input type="text" placeholder="URL or Feed-URL" id="app-searchfield" class="textfield"/>
 	</header>
 	<div class="l-app">
 		<div class="l-tools text-right">
@@ -69,5 +65,32 @@
 			</ul>
 		</div>
 	</div>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+	<script>
+		window.App = {
+			loadTemplate: function(url){
+				var data = "Kann Template " + url + " nicht laden.";
+
+				$.ajax({
+					async: false,
+					url: url,
+					success: function(response) {
+						data = response;
+					}
+				});
+
+				return data;
+			}
+		}
+
+	</script>
+
+	<script src="js/build/app.min.js"></script>
+
+	<script>
+		new AppView();
+	</script>
 </body>
 </html>
