@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     },
     concat: {
       dist: {
-        src: ['vendor/underscore.min.js', 'vendor/backbone.1.0.0.min.js', 'src/**/*.js'],
+        src: ['vendor/underscore.min.js', 'vendor/uri.js', 'vendor/backbone.1.0.0.min.js', 'src/**/*.js'],
         dest: 'build/app.js'
       }
     },

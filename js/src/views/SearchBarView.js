@@ -5,15 +5,18 @@ var SearchBarView = Backbone.View.extend({
 	},
 
 	initialize: function(){
-		this.setElement(App.loadTemplate('templates/searchBar.html'));
-		this.render();
+		this.setElement($('header'));
 	},
 
 	render: function(){
-		this.$el.appendTo(App.appView.$el.find('header'));
+
 	},
 
 	addRssFeed: function(){
-		console.log("Add RSS-Feed");
+		var url = this.$el.find('input').val();
+
+		$.get(url, function(data){
+			console.log(data);
+		});
 	}
 });
