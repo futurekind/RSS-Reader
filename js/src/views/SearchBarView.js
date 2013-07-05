@@ -10,13 +10,5 @@ var SearchBarView = Backbone.View.extend({
 
 	render: function(){
 
-	},
-
-	addRssFeed: function(){
-		var url = this.$el.find('input').val();
-
-		$.get(url, function(data){
-			console.log(data);
-		});
 	}
 });

@@ -7,11 +7,11 @@
 	<link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<link href="css/fonts/css/icons.css" media="screen, projection" rel="stylesheet" type="text/css" />
 </head>
-<body id="js-app">
+<body id="app">
 	<header>
 		<i class="icon-rss"></i>
-		<input type="text" placeholder="URL or Feed-URL" id="app-searchfield" class="textfield" value="http://rss1.smashingmagazine.com/feed/"/>
-		<button class="button button-action" id="js-search-button">Search</button>
+		<input type="text" placeholder="URL or Feed-URL" id="app-searchfield" class="textfield" value=""/>
+		<button class="button button-action" id="app-search-button">Search</button>
 	</header>
 	<div class="l-app">
 		<div class="l-tools text-right">
@@ -24,25 +24,17 @@
 					</ul>
 				</li>
 				<li>
-					<a class="tools-heading">Smart</a>
-					<ul>
-						<li><a class="tools-item">Favourites</a></li>
-					</ul>
-				</li>
-				<li>
-					<a class="tools-heading">Collections</a>
-					<ul>
-						<li><a class="tools-item">Web</a></li>
-						<li><a class="tools-item">Blogs</a></li>
-						<li><a class="tools-item">News Channels</a></li>
+					<a class="tools-heading">Subscriptions</a>
+					<ul id="app-subscriptions">
+						<li><span class="tools-item">Loading Subscriptions</span></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
-		<div class="l-read">content</div>
+		<div class="l-read">Loading content</div>
 		<div class="l-tools">
 			<ul class="tools">
-				<li>
+				<!--li>
 					<a class="tools-heading">Web</a>
 					<ul>
 						<li><a class="tools-item">A List Apart</a></li>
@@ -63,13 +55,17 @@
 						<li><a class="tools-item">Spiegel.de</a></li>
 						<li><a class="tools-item">Tagesschau.de</a></li>
 					</ul>
-				</li>
+				</li-->
 			</ul>
 		</div>
 	</div>
 
+	<div class="loader">
+		<div class="loader-message">Message</div>
+	</div>
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script>
 		window.App = {
 			loadTemplate: function(url){
