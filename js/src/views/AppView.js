@@ -7,7 +7,7 @@ var AppView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.subscriptionBarView = new SubscriptionBarView();
+		// this.subscriptionBarView = new SubscriptionBarView();
 	}
 
 });
