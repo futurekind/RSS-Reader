@@ -4,10 +4,11 @@
 	padding: 2em 1em;
 	border-radius: 5px;
 	position: absolute;
-	top: 100px;
+	top: -250px;
 	left: 50%;
 	@include box-shadow(#999 0 0 25px);
 	text-align: center;
+	@include transition(top .5s ease-out);
 
 	&.message-plain {
 		background: rgba(255, 255, 255, .9);
@@ -25,6 +26,10 @@
 	&.message-error {
 		background: $colorMessageError;
 		color: #fff;
+	}
+
+	&.message-active {
+		top: 100px;
 	}
 }
 

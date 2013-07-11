@@ -6,8 +6,8 @@ var MessageView = Backbone.View.extend({
 
 	options: {
 		type: 'plain',
-		title: 'This is a message',
-		body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit?',
+		title: '',
+		body: '',
 		showLoadingIndicator: false
 	},
 
@@ -17,13 +17,27 @@ var MessageView = Backbone.View.extend({
 	},
 
 	render: function(){
+
+		var _this = this;
+
 		var html = _.template(this.template, this.options);
 		App.appView.$el.append(this.$el.html(html));
+
+		setTimeout(function(){
+			_this.$el.find('.message').addClass('message-active');
+		}, 250);
 	},
 
 	close: function(e){
 		e.preventDefault();
-		this.remove();
+
+		var _this = this;
+
+		this.$el.find('.message').removeClass('message-active');
+
+		setTimeout(function(){
+			_this.remove();
+		}, 500);
 	}
 
 });
