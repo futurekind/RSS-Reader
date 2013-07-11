@@ -1,0 +1,10 @@
+<div class="message message-<%=type%>">
+	<a href="" class="message-close">&times;</a>
+	<% if(showLoadingIndicator) { %>
+		<span class="message-indicator"></span>
+		<span class="message-indicator"></span>
+		<span class="message-indicator"></span>
+	<% } %>
+	<h2 class="message-title"><%=title%></h2>
+	<p class="message-body"><%=body%></p>
+</div>
