@@ -2,25 +2,25 @@ var AppView = Backbone.View.extend({
 
 	subscriptionBarView: null,
 
-	events: {
-		"click .test-message-plain": "showMessage"
-	},
-
 	initialize: function(){
 		this.setElement($('#app'));
 	},
 
 	render: function(){
 		// this.subscriptionBarView = new SubscriptionBarView();
+		this.showMessage();
 	},
 
-	showMessage: function(e){
-		e.preventDefault();
-		new MessageView({
+	showMessage: function(){
+
+		var message = new MessageView({
 			showLoadingIndicator: true,
-			title: 'Hallo, junger Freund',
-			body: 'Ich bin ein Messagetext! Ich hoffe alles passt!'
+			title: 'Lade Daten'
 		});
+
+		setTimeout(function(){
+			message.close();
+		}, 5000);
 	}
 
 });

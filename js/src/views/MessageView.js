@@ -1,5 +1,7 @@
 var MessageView = Backbone.View.extend({
 
+	className: 'message',
+
 	events: {
 		'click .message-close': 'close'
 	},
@@ -8,7 +10,8 @@ var MessageView = Backbone.View.extend({
 		type: 'plain',
 		title: '',
 		body: '',
-		showLoadingIndicator: false
+		showLoadingIndicator: false,
+		showCloseButton: false
 	},
 
 	initialize: function(){
@@ -21,19 +24,26 @@ var MessageView = Backbone.View.extend({
 		var _this = this;
 
 		var html = _.template(this.template, this.options);
-		App.appView.$el.append(this.$el.html(html));
+
+		this.$el
+			.addClass('message-' + this.options.type)
+			.html(html);
+
+		App.appView.$el.append(this.$el);
 
 		setTimeout(function(){
-			_this.$el.find('.message').addClass('message-active');
+			_this.$el.addClass('message-active');
 		}, 250);
 	},
 
 	close: function(e){
-		e.preventDefault();
+		if(e){
+			e.preventDefault();
+		}
 
 		var _this = this;
 
-		this.$el.find('.message').removeClass('message-active');
+		this.$el.removeClass('message-active');
 
 		setTimeout(function(){
 			_this.remove();

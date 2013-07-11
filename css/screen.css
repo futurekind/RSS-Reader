@@ -179,10 +179,10 @@ header {
   -moz-box-shadow: #999999 0 0 25px;
   box-shadow: #999999 0 0 25px;
   text-align: center;
-  -webkit-transition: top 0.5s ease-out;
-  -moz-transition: top 0.5s ease-out;
-  -o-transition: top 0.5s ease-out;
-  transition: top 0.5s ease-out;
+  -webkit-transition: top 0.25s ease-out;
+  -moz-transition: top 0.25s ease-out;
+  -o-transition: top 0.25s ease-out;
+  transition: top 0.25s ease-out;
 }
 /* line 13, ../scss/partials/modules/_message.scss */
 .message.message-plain {

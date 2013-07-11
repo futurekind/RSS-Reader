@@ -8,7 +8,7 @@
 	left: 50%;
 	@include box-shadow(#999 0 0 25px);
 	text-align: center;
-	@include transition(top .5s ease-out);
+	@include transition(top .25s ease-out);
 
 	&.message-plain {
 		background: rgba(255, 255, 255, .9);
