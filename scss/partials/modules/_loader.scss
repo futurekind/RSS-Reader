@@ -1,0 +1,61 @@
+.loader {
+	width: 250px;
+	height: 100px;
+	margin: 0 0 0 -125px;
+	padding: 2em 1em;
+	border-radius: 5px;
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	@include box-shadow(#999 0 0 25px);
+	background: rgba(255, 255, 255, .75);
+	text-align: center;
+}
+
+.loader-indicator {
+	width: 7px;
+	height: 7px;
+	margin: 0 5px 0 0;
+	border-radius: 10px;
+	display: inline-block;
+	background: $colorHighlightPrimaryHex;
+	-webkit-animation: loading .35s infinite alternate;
+	animation: loading .35s infinite alternate;
+
+	&:nth-child(2){
+		-webkit-animation-delay: .25s;
+		animation-delay: .25s;
+	}
+
+	&:nth-child(3){
+		-webkit-animation-delay: .5s;
+		animation-delay: .5s;
+	}
+}
+
+.loader-message {
+	margin: 1.25em 0 0;
+	font-size: 1.25em;
+}
+
+@-webkit-keyframes loading {
+	from {
+		opacity: 1
+	}
+
+	to {
+		opacity: .25
+	}
+}
+
+@keyframes loading {
+	from {
+		width: 7px;
+		height: 7px;
+	}
+
+	to {
+		width: 10px;
+		height: 10px;
+	}
+}
