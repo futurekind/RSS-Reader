@@ -1,6 +1,6 @@
-.loader {
+.message {
 	width: 250px;
-	height: 100px;
+	min-height: 100px;
 	margin: 0 0 0 -141px;
 	padding: 2em 1em;
 	border-radius: 5px;
@@ -8,14 +8,31 @@
 	top: 100px;
 	left: 50%;
 	@include box-shadow(#999 0 0 25px);
-	background: rgba(255, 255, 255, .75);
 	text-align: center;
+
+	&.message-plain {
+		background: rgba(255, 255, 255, .9);
+	}
+
+	&.message-success {
+		background: $colorMessageSuccess;
+		color: #fff;
+	}
+
+	&.message-warning {
+		background: $colorMessageWarning;
+	}
+
+	&.message-error {
+		background: $colorMessageError;
+		color: #fff;
+	}
 }
 
-.loader-indicator {
+.message-indicator {
 	width: 7px;
 	height: 7px;
-	margin: 0 5px 0 0;
+	margin: 0 5px 1em 0;
 	border-radius: 10px;
 	display: inline-block;
 	background: $colorHighlightPrimaryHex;
@@ -33,9 +50,22 @@
 	}
 }
 
-.loader-message {
-	margin: 1.25em 0 0;
+.message-close {
+	position: absolute;
+	top: 0;
+	right: 7px;
+	font-size: 2em;
+	text-decoration: none;
+	color: inherit;
+}
+
+.message-title {
+	margin: 0 0 .75em;
 	font-size: 1.25em;
+}
+
+.message-body {
+	font-size: 1em;
 }
 
 @-webkit-keyframes loading {

@@ -166,10 +166,10 @@ header {
   box-shadow: #555555 0 0 10px;
 }
 
-/* line 1, ../scss/partials/modules/_loader.scss */
-.loader {
+/* line 1, ../scss/partials/modules/_message.scss */
+.message {
   width: 250px;
-  height: 100px;
+  min-height: 100px;
   margin: 0 0 0 -141px;
   padding: 2em 1em;
   border-radius: 5px;
@@ -179,58 +179,90 @@ header {
   -webkit-box-shadow: #999999 0 0 25px;
   -moz-box-shadow: #999999 0 0 25px;
   box-shadow: #999999 0 0 25px;
-  background: rgba(255, 255, 255, 0.75);
   text-align: center;
 }
+/* line 13, ../scss/partials/modules/_message.scss */
+.message.message-plain {
+  background: rgba(255, 255, 255, 0.9);
+}
+/* line 17, ../scss/partials/modules/_message.scss */
+.message.message-success {
+  background: rgba(135, 141, 103, 0.95);
+  color: #fff;
+}
+/* line 22, ../scss/partials/modules/_message.scss */
+.message.message-warning {
+  background: rgba(250, 222, 133, 0.95);
+}
+/* line 26, ../scss/partials/modules/_message.scss */
+.message.message-error {
+  background: rgba(248, 27, 27, 0.95);
+  color: #fff;
+}
 
-/* line 15, ../scss/partials/modules/_loader.scss */
-.loader-indicator {
+/* line 32, ../scss/partials/modules/_message.scss */
+.message-indicator {
   width: 7px;
   height: 7px;
-  margin: 0 5px 0 0;
+  margin: 0 5px 1em 0;
   border-radius: 10px;
   display: inline-block;
   background: #636e22;
   -webkit-animation: loading 0.35s infinite alternate;
   animation: loading 0.35s infinite alternate;
 }
-/* line 25, ../scss/partials/modules/_loader.scss */
-.loader-indicator:nth-child(2) {
+/* line 42, ../scss/partials/modules/_message.scss */
+.message-indicator:nth-child(2) {
   -webkit-animation-delay: .25s;
   animation-delay: .25s;
 }
-/* line 30, ../scss/partials/modules/_loader.scss */
-.loader-indicator:nth-child(3) {
+/* line 47, ../scss/partials/modules/_message.scss */
+.message-indicator:nth-child(3) {
   -webkit-animation-delay: .5s;
   animation-delay: .5s;
 }
 
-/* line 36, ../scss/partials/modules/_loader.scss */
-.loader-message {
-  margin: 1.25em 0 0;
+/* line 53, ../scss/partials/modules/_message.scss */
+.message-close {
+  position: absolute;
+  top: 0;
+  right: 7px;
+  font-size: 2em;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 62, ../scss/partials/modules/_message.scss */
+.message-title {
+  margin: 0 0 0.75em;
   font-size: 1.25em;
 }
 
+/* line 67, ../scss/partials/modules/_message.scss */
+.message-body {
+  font-size: 1em;
+}
+
 @-webkit-keyframes loading {
-  /* line 42, ../scss/partials/modules/_loader.scss */
+  /* line 72, ../scss/partials/modules/_message.scss */
   from {
     opacity: 1;
   }
 
-  /* line 46, ../scss/partials/modules/_loader.scss */
+  /* line 76, ../scss/partials/modules/_message.scss */
   to {
     opacity: 0.25;
   }
 }
 
 @keyframes loading {
-  /* line 52, ../scss/partials/modules/_loader.scss */
+  /* line 82, ../scss/partials/modules/_message.scss */
   from {
     width: 7px;
     height: 7px;
   }
 
-  /* line 57, ../scss/partials/modules/_loader.scss */
+  /* line 87, ../scss/partials/modules/_message.scss */
   to {
     width: 10px;
     height: 10px;

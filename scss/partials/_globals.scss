@@ -13,5 +13,11 @@ $colorQuiteSecondaryRGB: rgb(221, 199, 194);
 
 $colorTextHex: #333;
 
+// Messages
+$colorMessagePlain: rgba(255, 255, 255, 0.95);
+$colorMessageSuccess: rgba(135, 141, 103, 0.95);
+$colorMessageWarning: rgba(250, 222, 133, 0.95);
+$colorMessageError: rgba(248, 27, 27, 0.95);
+
 // Fonts
 $fontHighlight: 'Open Sans Condensed', sans-serif;
