@@ -1,26 +1,37 @@
 var AppView = Backbone.View.extend({
 
 	subscriptionBarView: null,
+	appIdentifier: 'zappscription',
+
+	apiUser: null,
+	apiPassword: null,
 
 	initialize: function(){
 		this.setElement($('#app'));
+		this.apiUser = localStorage.getItem(this.appIdentifier + 'username');
+		this.apiPassword = localStorage.getItem(this.appIdentifier + 'password');
 	},
 
 	render: function(){
-		// this.subscriptionBarView = new SubscriptionBarView();
-		this.showMessage();
+
+		this.checkForUsernameAndPassword();
 	},
 
-	showMessage: function(){
+	checkForUsernameAndPassword: function(){
+		if(!window.localStorage) {
 
-		var message = new MessageView({
-			showLoadingIndicator: true,
-			title: 'Lade Daten'
-		});
+		} else if(this.apiUser) {
+			this.subscriptionBarView = new SubscriptionBarView();
+		} else {
+			this.apiUser = 'wrong_user';
+			this.apiPassword = 'wrong_pwd';
 
-		setTimeout(function(){
-			message.close();
-		}, 5000);
+			localStorage.setItem(this.appIdentifier + 'username', this.apiUser);
+			localStorage.setItem(this.appIdentifier + 'password', this.apiPassword);
+
+			this.subscriptionBarView = new SubscriptionBarView();
+		}
+
 	}
 
 });
