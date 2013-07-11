@@ -1,0 +1,17 @@
+<ul class="tools" id="app-subscriptions-bar">
+	<li>
+		<a class="tools-heading">Reading</a>
+		<ul>
+			<li><a class="tools-item">All items</a></li>
+			<li><a class="tools-item">New items</a></li>
+		</ul>
+	</li>
+	<li>
+		<a class="tools-heading">Subscriptions</a>
+		<ul id="app-subscriptions">
+			<% _.each(data, function(s) { %>
+			<li><span class="tools-item"><%=s.title%></span></li>
+			<% }); %>
+		</ul>
+	</li>
+</ul>

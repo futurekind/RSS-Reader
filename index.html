@@ -15,25 +15,11 @@
 	</header>
 	<div class="l-app">
 		<div class="l-tools text-right">
-			<ul class="tools">
-				<li>
-					<a class="tools-heading">Reading</a>
-					<ul>
-						<li><a class="tools-item">All items</a></li>
-						<li><a class="tools-item">New items</a></li>
-					</ul>
-				</li>
-				<li>
-					<a class="tools-heading">Subscriptions</a>
-					<ul id="app-subscriptions">
-						<li><span class="tools-item">Loading Subscriptions</span></li>
-					</ul>
-				</li>
-			</ul>
+
 		</div>
-		<div class="l-read">Loading content</div>
+		<div class="l-read"></div>
 		<div class="l-tools">
-			<ul class="tools">
+			<ul class="tools" id="app-feeds-bar">
 				<!--li>
 					<a class="tools-heading">Web</a>
 					<ul>
@@ -66,6 +52,7 @@
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="js/build/app.js"></script>
 	<script>
 		window.App = {
 			loadTemplate: function(url){
@@ -80,15 +67,14 @@
 				});
 
 				return data;
-			}
+			},
+
+			appView: null
 		}
 
-	</script>
+		App.appView = new AppView();
+		App.appView.render();
 
-	<script src="js/build/app.min.js"></script>
-
-	<script>
-		new AppView();
 	</script>
 </body>
 </html>

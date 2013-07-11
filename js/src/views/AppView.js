@@ -1,17 +1,13 @@
 var AppView = Backbone.View.extend({
 
-	apiUrl: 'https://api.feedbin.me/v2/subscriptions.json',
+	subscriptionBarView: null,
 
 	initialize: function(){
 		this.setElement($('#app'));
-		App.appView = this;
-		this.checkApi();
 	},
 
-	checkApi: function(){
-		$.get(this.apiUrl, function(data){
-			console.log(data);
-		});
+	render: function(){
+		this.subscriptionBarView = new SubscriptionBarView();
 	}
 
 });
