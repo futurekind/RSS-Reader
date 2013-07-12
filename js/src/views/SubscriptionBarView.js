@@ -1,6 +1,5 @@
 var SubscriptionBarView = Backbone.View.extend({
 
-	apiUrl: 'https://api.feedbin.me/v2/subscriptions.json',
 	subscriptions: null,
 
 	initialize: function(){
@@ -10,12 +9,29 @@ var SubscriptionBarView = Backbone.View.extend({
 
 	loadSubscriptions: function(){
 
+		var loading = new MessageView({
+			showLoadingIndicator: true,
+			title: 'Loading your subscriptions!'
+		});
+
 		var _this = this;
+		var params = {
+			command: 'getSubscriptions'
+		};
 
-		$.get(this.apiUrl, function(data){
-			_this.subscriptions = data;
+		$.get('scripts/feedbinApiProxy.php', params, function(data){
 
-			_this.render();
+			loading.close();
+
+			if(data.data.http_code == '401'){
+				var message = new MessageView({
+					type: 'error',
+					title: 'Owe noes!',
+					body: 'It looks like you have to login into Feedbin!',
+					showCloseButton: true
+				});
+			}
+
 		});
 	},
 
