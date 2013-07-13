@@ -14,7 +14,6 @@ var SubscriptionBarView = Backbone.View.extend({
 			title: 'Loading your subscriptions!'
 		});
 
-		var _this = this;
 		var params = {
 			command: 'getSubscriptions'
 		};
@@ -24,12 +23,7 @@ var SubscriptionBarView = Backbone.View.extend({
 			loading.close();
 
 			if(data.data.http_code == '401'){
-				var message = new MessageView({
-					type: 'error',
-					title: 'Owe noes!',
-					body: 'It looks like you have to login into Feedbin!',
-					showCloseButton: true
-				});
+				new LoginFormView();
 			}
 
 		});

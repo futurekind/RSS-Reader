@@ -299,3 +299,47 @@ header {
   left: 50.45%;
   font-size: .6em;
 }
+
+/* line 3, ../scss/partials/modules/_forms.scss */
+.form.form-loginForm {
+  width: 500px;
+  padding: 20px;
+  margin: 50px auto 0;
+  border-radius: 3px;
+  background: #ddc7c2;
+}
+
+/* line 13, ../scss/partials/modules/_forms.scss */
+.from-heading {
+  margin: 0 0 1.25em;
+  font-size: 1.5em;
+}
+
+/* line 20, ../scss/partials/modules/_forms.scss */
+.form-label {
+  margin: 0 0 0.25em;
+  display: block;
+  font-size: 1em;
+}
+
+/* line 26, ../scss/partials/modules/_forms.scss */
+.form-textfield {
+  width: 100%;
+  padding: .85em;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  font-size: .9em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 34, ../scss/partials/modules/_forms.scss */
+.form-textfield:focus {
+  outline: none;
+  box-shadow: #aaaaaa 0 0 15px;
+}
+
+/* line 40, ../scss/partials/modules/_forms.scss */
+.form-rowSeparator {
+  margin: 0 0 1em;
+}
