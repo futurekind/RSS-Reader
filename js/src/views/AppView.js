@@ -23,13 +23,7 @@ var AppView = Backbone.View.extend({
 		} else if(this.apiUser && this.apiPassword) {
 			this.subscriptionBarView = new SubscriptionBarView();
 		} else {
-			this.apiUser = 'wrong_user';
-			this.apiPassword = 'wrong_pwd';
-
-			localStorage.setItem(this.appIdentifier + 'username', this.apiUser);
-			localStorage.setItem(this.appIdentifier + 'password', this.apiPassword);
-
-			this.subscriptionBarView = new SubscriptionBarView();
+			new LoginFormView();
 		}
 
 	}

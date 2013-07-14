@@ -15,6 +15,16 @@ var LoginFormView = Backbone.View.extend({
 		this.$el.html(html);
 
 		$('#app-main').empty().append(this.$el);
+
+		this.$el.on('submit', function(e){
+			_this.login(e);
+		});
+
+	},
+
+	login: function(e) {
+		e.preventDefault();
+		console.log('Login');
 	}
 
 });
