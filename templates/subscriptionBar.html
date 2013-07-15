@@ -10,7 +10,11 @@
 		<a class="tools-heading">Subscriptions</a>
 		<ul id="app-subscriptions">
 			<% _.each(data, function(s) { %>
-			<li><span class="tools-item"><%=s.title%></span></li>
+			<li>
+				<span class="tools-item" data-feed-id="<%=s.attributes.feed_id%>">
+					<%=s.attributes.title%>
+				</span>
+			</li>
 			<% }); %>
 		</ul>
 	</li>

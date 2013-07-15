@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         stripBanners: true
       },
       dist: {
-        src: ['js/vendor/underscore.min.js', 'js/vendor/uri.js', 'js/vendor/backbone.1.0.0.min.js', 'js/src/**/*.js'],
+        src: ['js/vendor/underscore.min.js', 'js/vendor/backbone.1.0.0.min.js', 'js/src/**/*.js'],
         dest: 'js/build/<%= pkg.name %>.js'
       }
     },
