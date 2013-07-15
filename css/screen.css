@@ -344,6 +344,11 @@ header {
   margin: 0 0 1em;
 }
 
+/* line 44, ../scss/partials/modules/_forms.scss */
+.form-rowTextRight {
+  text-align: right;
+}
+
 /* line 1, ../scss/partials/modules/_buttons.scss */
 .btn {
   padding: .35em .6em;
