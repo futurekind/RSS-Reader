@@ -24,7 +24,15 @@ var LoginFormView = Backbone.View.extend({
 
 	login: function(e) {
 		e.preventDefault();
-		console.log('Login');
+		App.appView.apiUser = $('#app-username').val();
+		App.appView.apiPassword = $('#app-password').val();
+
+		localStorage.setItem(App.appView.appIdentifier + 'username', App.appView.apiUser);
+		localStorage.setItem(App.appView.appIdentifier + 'password', App.appView.apiPassword);
+
+		App.appView.checkForUsernameAndPassword();
+
+		this.remove();
 	}
 
 });

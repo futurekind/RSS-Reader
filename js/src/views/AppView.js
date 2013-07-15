@@ -20,10 +20,8 @@ var AppView = Backbone.View.extend({
 	checkForUsernameAndPassword: function(){
 		if(!window.localStorage) {
 
-		} else if(this.apiUser && this.apiPassword) {
-			this.subscriptionBarView = new SubscriptionBarView();
 		} else {
-			new LoginFormView();
+			this.subscriptionBarView = new SubscriptionBarView();
 		}
 
 	}

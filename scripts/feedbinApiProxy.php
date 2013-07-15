@@ -12,6 +12,10 @@ class FeedbinApiProxy {
 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
+		if($_GET['userpass'] != ''){
+			curl_setopt($ch, CURLOPT_USERPWD, $_GET['userpass']);
+		}
+
 		$result = curl_exec($ch);
 
 		$info = curl_getinfo($ch);
@@ -19,7 +23,7 @@ class FeedbinApiProxy {
 		curl_close($ch);
 
 		if($info['http_code'] != '200'){
-			$result = $info;
+			$result = json_encode($info);
 		}
 
 		return $result;
@@ -27,7 +31,7 @@ class FeedbinApiProxy {
 
 	private function renderJSON($data) {
 		header('Content-Type: application/json');
-		echo json_encode($data);
+		echo $data['data'];
 	}
 
 }

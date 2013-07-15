@@ -14,21 +14,28 @@ var SubscriptionBarView = Backbone.View.extend({
 			title: 'Loading your subscriptions!'
 		});
 
+		var _this = this;
+
 		var params = {
-			method: 'getSubscriptions'
+			method: 'getSubscriptions',
+			userpass: App.appView.apiUser + ':' + App.appView.apiPassword
 		};
 
 		$.get('scripts/feedbinApiProxy.php', params, function(data){
 			loading.close();
 
-			if(data.data.http_code == '401'){
+			if(data.http_code == '401'){
 				new LoginFormView();
+			} else {
+				_this.subscriptions = data;
+				_this.render();
 			}
 
-		});
+		}, 'json');
 	},
 
 	render: function() {
+		console.log(this.subscriptions);
 		var templateHtml = _.template(this.template, {data: this.subscriptions});
 
 		this.$el.html(templateHtml);
