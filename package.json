@@ -1,0 +1,16 @@
+{
+  "name": "zappscription",
+  "version": "0.5.0",
+  "description": "A RSS-Reader build upon the Feedbin API",
+  "dependencies": {
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.4"
+  },
+  "author": "Fabian Trinler",
+  "license": "BSD"
+}
