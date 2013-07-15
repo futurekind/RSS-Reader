@@ -14,7 +14,7 @@ var AppView = Backbone.View.extend({
 
 	render: function(){
 
-		this.checkForUsernameAndPassword();
+		// this.checkForUsernameAndPassword();
 	},
 
 	checkForUsernameAndPassword: function(){

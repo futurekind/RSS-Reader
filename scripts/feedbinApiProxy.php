@@ -7,7 +7,7 @@ class FeedbinApiProxy {
 		return $this->renderJSON($result);
 	}
 
-	private function curl($url, $options = []){
+	private function curl($url, $options = null){
 		$ch = curl_init($url);
 
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -33,6 +33,6 @@ class FeedbinApiProxy {
 }
 
 $proxy = new FeedbinApiProxy();
-$proxy->$_GET['command']();
+$proxy->$_GET['method']();
 
 ?>

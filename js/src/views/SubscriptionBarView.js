@@ -15,11 +15,10 @@ var SubscriptionBarView = Backbone.View.extend({
 		});
 
 		var params = {
-			command: 'getSubscriptions'
+			method: 'getSubscriptions'
 		};
 
 		$.get('scripts/feedbinApiProxy.php', params, function(data){
-
 			loading.close();
 
 			if(data.data.http_code == '401'){

@@ -1,0 +1,32 @@
+.btn {
+	padding: .35em .6em;
+	border: none;
+	border: {
+		left: 1px solid #bbb;
+		right: 1px solid #bbb;
+		top: 1px solid #ddd;
+		bottom: 1px solid #666;
+	}
+	border-radius: 3px;
+	font: {
+		family: $fontHighlight;
+		size: 1em;
+	}
+	cursor: pointer;
+	@include button(#ccc, $colorTextHex, #eee);
+
+	&.btn-primary {
+		@include button($colorHighlightPrimaryHex);
+	}
+
+	&.btn-danger {
+		@include button(red);
+	}
+
+	&.btn-plain {
+		border: none;
+		background: none;
+		color: $colorTextHex;
+		text-decoration: underline;
+	}
+}

@@ -21,3 +21,26 @@ $colorMessageError: rgba(248, 27, 27, 0.95);
 
 // Fonts
 $fontHighlight: 'Open Sans Condensed', sans-serif;
+
+// Mixins
+@mixin button($colorBg, $colorText: #fff, $colorTextShadow: #000) {
+	border-top-color: tint($colorBg, 50%);
+	border-bottom-color: shade($colorBg, 20%);
+	color: $colorText;
+	@include background-image(linear-gradient(color-stops(
+		scale-lightness($colorBg, 40),
+		scale-lightness($colorBg, 10) 49%,
+		scale-lightness($colorBg, -3) 51%,
+		$colorBg)));
+
+	@include text-shadow($colorTextShadow 0 -1px 0);
+
+	&:hover {
+		$colorBg: tint($colorBg, 30%);
+		@include background-image(linear-gradient(color-stops(
+			scale-lightness($colorBg, 40),
+			scale-lightness($colorBg, 10) 49%,
+			scale-lightness($colorBg, -3) 51%,
+			$colorBg)));
+	}
+}
