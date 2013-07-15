@@ -46,6 +46,6 @@ var SubscriptionBarView = Backbone.View.extend({
 
 		this.$el.html(templateHtml);
 
-		App.appView.$el.find('.l-tools.text-right').append(this.$el);
+		$('#app-feeds-bar').append(this.$el);
 	}
 });
