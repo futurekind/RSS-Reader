@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       lib_test: {
         files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint', 'concat', 'uglify']
+        tasks: ['jshint', 'concat']
       }
     }
   });
