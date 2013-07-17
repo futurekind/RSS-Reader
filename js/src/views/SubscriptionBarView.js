@@ -21,35 +21,30 @@ var SubscriptionBarView = Backbone.View.extend({
 			userpass: App.appView.apiUser + ':' + App.appView.apiPassword
 		};
 
-		$.get('scripts/feedbinApiProxy.php', params, function(data){
+		this.subscriptions = new Subscriptions();
+
+		this.subscriptions.on('change', this.render, this);
+
+		this.subscriptions.load(params, function(data){
 			loading.close();
 
-			if(data.http_code == '401'){
-				new LoginFormView();
-			} else {
-
-				_this.subscriptions = new Subscriptions();
-				_this.subscriptions.on( "change", _this.render, _this);
-
-				$.each(data, function(i, s){
-					var subscription = new Subscription(s);
-					_this.subscriptions.add(subscription);
-				});
-
+			if(data) {
 				_this.render();
+			} else {
+				new LoginFormView();
 			}
 
-		}, 'json');
+		});
+
 	},
 
 	render: function() {
-		// console.log(this.subscriptions);
+
 		var templateHtml = _.template(this.template, {data: this.subscriptions.models});
 
 		this.$el.html(templateHtml);
 
-		$('#app-feeds-bar').append(this.$el);
+		$('#app-subscriptions-bar').append(this.$el);
 
-		this.subscriptions.get(618762).set('title', 'foo');
 	}
 });
