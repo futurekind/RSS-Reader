@@ -4,7 +4,7 @@
 		<ul id="app-subscriptions">
 			<% _.each(data, function(s) { %>
 			<li>
-				<span class="tools-item" data-feed-id="<%=s.attributes.feed_id%>">
+				<span class="tools-item" data-feed-id="<%=s.attributes.feed_id%>" data-id="<%=s.id%>">
 					<%=s.attributes.title%>
 				</span>
 			</li>
