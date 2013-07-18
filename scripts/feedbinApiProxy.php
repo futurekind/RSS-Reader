@@ -1,9 +1,15 @@
 <?php
 class FeedbinApiProxy {
 	var $urlSubscription = "https://api.feedbin.me/v2/subscriptions.json";
+	var $urlUnreadFeeds = "https://api.feedbin.me/v2/entries.json?read=false";
 
 	function getSubscriptions(){
 		$result['data'] = $this->curl($this->urlSubscription);
+		return $this->renderJSON($result);
+	}
+
+	function getUnreadFeeds(){
+		$result['data'] = $this->curl($this->urlUnreadFeeds);
 		return $this->renderJSON($result);
 	}
 

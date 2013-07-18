@@ -1,7 +1,4 @@
-var Subscriptions = Backbone.Collection.extend({
-	comparator: 'title',
-
-	// model: 'Subscription',
+var Feeds = Backbone.Collection.extend({
 
 	url: 'scripts/feedbinApiProxy.php',
 
@@ -17,8 +14,8 @@ var Subscriptions = Backbone.Collection.extend({
 
 			} else {
 
-				$.each(data, function(i, s){
-					_this.add(new Subscription(s));
+				$.each(data, function(i, f){
+					_this.add(new Feed(f));
 				});
 
 				callback(true);
@@ -28,4 +25,5 @@ var Subscriptions = Backbone.Collection.extend({
 		}, 'json');
 
 	}
+
 });

@@ -1,6 +1,8 @@
 var AppView = Backbone.View.extend({
 
 	subscriptionBarView: null,
+	feedView: null,
+
 	appIdentifier: 'zappscription',
 
 	apiUser: null,
@@ -13,7 +15,6 @@ var AppView = Backbone.View.extend({
 	},
 
 	render: function(){
-
 		this.checkForUsernameAndPassword();
 	},
 
@@ -22,6 +23,7 @@ var AppView = Backbone.View.extend({
 
 		} else {
 			this.subscriptionBarView = new SubscriptionBarView();
+			this.feedView = new FeedView();
 		}
 
 	}

@@ -7,6 +7,10 @@ var Subscription = Backbone.Model.extend({
 		'title': '',
 		'feed_url': '',
 		'site_url': ''
+	},
+
+	test: function(){
+		console.log(this);
 	}
 
 });
