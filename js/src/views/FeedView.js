@@ -8,6 +8,10 @@ var FeedView = Backbone.View.extend({
 
 	id: 'app-feeds',
 
+	events: {
+		'click .feed': 'showDetailView'
+	},
+
 	initialize: function(){
 		this.template = App.loadTemplate('templates/feedView.html');
 	},
@@ -41,6 +45,10 @@ var FeedView = Backbone.View.extend({
 
 		this.trigger('didRender');
 
+	},
+
+	showDetailView: function(e){
+		console.log($(e.currentTarget).data('feed-id'));
 	}
 
 });

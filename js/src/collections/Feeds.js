@@ -22,8 +22,7 @@ var Feeds = Backbone.Collection.extend({
 					});
 
 					var date = moment(feed.get('published'), 'YYYY-MM-DD').format('dddd, MMMM Do YYYY');
-					// var date = moment("Dec 25, 1995");
-console.log(date);
+
 					feed.set('published_formated', date);
 					feed.set('source', source.get('title'));
 
