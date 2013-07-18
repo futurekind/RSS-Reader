@@ -63,12 +63,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 11, ../scss/screen.scss */
+/* line 12, ../scss/screen.scss */
 html {
   height: 100%;
 }
 
-/* line 14, ../scss/screen.scss */
+/* line 15, ../scss/screen.scss */
 body {
   height: 100%;
   font-family: "Open Sans Condensed", sans-serif;
@@ -76,7 +76,7 @@ body {
   color: #333333;
 }
 
-/* line 23, ../scss/screen.scss */
+/* line 24, ../scss/screen.scss */
 .text-right {
   text-align: right;
 }
@@ -93,7 +93,7 @@ header {
 /* line 1, ../scss/partials/layout/_app.scss */
 .l-app {
   width: 1200px;
-  height: 94%;
+  height: 91%;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
