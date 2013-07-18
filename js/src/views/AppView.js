@@ -2,6 +2,7 @@ var AppView = Backbone.View.extend({
 
 	subscriptionBarView: null,
 	feedView: null,
+	loadingView: null,
 
 	appIdentifier: 'zappscription',
 
@@ -14,18 +15,36 @@ var AppView = Backbone.View.extend({
 		this.apiPassword = localStorage.getItem(this.appIdentifier + 'password');
 	},
 
-	render: function(){
-		this.checkForUsernameAndPassword();
-	},
-
 	checkForUsernameAndPassword: function(){
 		if(!window.localStorage) {
 
 		} else {
-			this.subscriptionBarView = new SubscriptionBarView();
-			this.feedView = new FeedView();
+			this.render();
 		}
 
+	},
+
+	render: function(){
+
+		var _this = this;
+
+		this.loadingView = new MessageView({
+			showLoadingIndicator: true,
+			title: 'Loading your stuff, so hang tight!'
+		});
+
+		this.subscriptionBarView = new SubscriptionBarView();
+		this.feedView = new FeedView();
+
+		this.subscriptionBarView.loadSubscriptions();
+
+		this.listenTo(this.subscriptionBarView, 'didRender', function(){
+			_this.feedView.loadUnreadFeeds();
+		});
+
+		this.listenTo(this.feedView, 'didRender', function(){
+			_this.loadingView.close();
+		});
 	}
 
 });

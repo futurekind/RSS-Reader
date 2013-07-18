@@ -2,11 +2,10 @@ var FeedView = Backbone.View.extend({
 
 	feeds: null,
 
-	template: '<% _.each(data, function(f) { %> <h1><%=f.attributes.title%></h1><br/><%=f.attributes.content%><br/><br/> <% }); %>',
-
 	initialize: function(){
-		this.loadUnreadFeeds();
+		this.template = '<% _.each(data, function(f) { %> <h1><%=f.attributes.title%></h1><br/><%=f.attributes.content%><br/><br/> <% }); %>';
 	},
+
 
 	loadUnreadFeeds: function(){
 
@@ -33,6 +32,8 @@ var FeedView = Backbone.View.extend({
 		this.$el.html(templateHtml);
 
 		$('#app-main').append(this.$el);
+
+		this.trigger('didRender');
 
 	}
 
