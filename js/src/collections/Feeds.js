@@ -15,7 +15,20 @@ var Feeds = Backbone.Collection.extend({
 			} else {
 
 				$.each(data, function(i, f){
-					_this.add(new Feed(f));
+
+					var feed = new Feed(f);
+					var source = App.appView.subscriptionBarView.subscriptions.findWhere({
+						feed_id: feed.get('feed_id')
+					});
+
+					var date = moment(feed.get('published'), 'YYYY-MM-DD').format('dddd, MMMM Do YYYY');
+					// var date = moment("Dec 25, 1995");
+console.log(date);
+					feed.set('published_formated', date);
+					feed.set('source', source.get('title'));
+
+
+					_this.add(feed);
 				});
 
 				callback(true);

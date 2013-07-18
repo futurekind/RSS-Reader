@@ -2,8 +2,14 @@ var FeedView = Backbone.View.extend({
 
 	feeds: null,
 
+	tagName: 'ol',
+
+	className: 'feeds',
+
+	id: 'app-feeds',
+
 	initialize: function(){
-		this.template = '<% _.each(data, function(f) { %> <h1><%=f.attributes.title%></h1><br/><%=f.attributes.content%><br/><br/> <% }); %>';
+		this.template = App.loadTemplate('templates/feedView.html');
 	},
 
 

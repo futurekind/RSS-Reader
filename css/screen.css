@@ -426,3 +426,48 @@ header {
   color: #333333;
   text-decoration: underline;
 }
+
+/* line 1, ../scss/partials/modules/_feeds.scss */
+.feed {
+  padding: 1em 0.5em;
+  border-bottom: 1px solid #dddddd;
+  cursor: pointer;
+  overflow: hidden;
+  *zoom: 1;
+  -webkit-transition: background 0.25s ease-out;
+  -moz-transition: background 0.25s ease-out;
+  -o-transition: background 0.25s ease-out;
+  transition: background 0.25s ease-out;
+}
+/* line 11, ../scss/partials/modules/_feeds.scss */
+.feed:hover {
+  background: #ddc7c2;
+}
+/* line 15, ../scss/partials/modules/_feeds.scss */
+.feed:first-child {
+  border-top: none;
+}
+/* line 19, ../scss/partials/modules/_feeds.scss */
+.feed:last-child {
+  border-bottom: none;
+}
+
+/* line 24, ../scss/partials/modules/_feeds.scss */
+.feed-title {
+  width: 60%;
+  float: left;
+  line-height: 1.25em;
+}
+
+/* line 30, ../scss/partials/modules/_feeds.scss */
+.feed-author {
+  width: 38%;
+  float: right;
+  font-size: .9em;
+  text-align: right;
+}
+
+/* line 37, ../scss/partials/modules/_feeds.scss */
+.feed-date {
+  font-size: .75em;
+}

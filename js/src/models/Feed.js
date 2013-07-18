@@ -6,9 +6,11 @@ var Feed = Backbone.Model.extend({
 		title: '',
 		url: '',
 		author: '',
+		source: '',
 		content: '',
 		summary: '',
 		published: '',
+		published_formated: '',
 		created_at: ''
 	}
 
