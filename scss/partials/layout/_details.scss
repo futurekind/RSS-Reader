@@ -1,0 +1,14 @@
+.l-details {
+	width: 100%;
+	padding: 1em;
+	position: absolute;
+	top: 0;
+	left: 705px;
+	background: #fff;
+	@include transition(left .5s ease-out);
+	@include box-sizing(border-box);
+
+	&.is-visible {
+		left: 0;
+	}
+}
