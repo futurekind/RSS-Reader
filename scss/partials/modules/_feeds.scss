@@ -1,0 +1,39 @@
+.feed {
+	padding: 1em .5em;
+	border: {
+		// top: 1px solid #888;
+		bottom: 1px solid #ddd;
+	}
+	cursor: pointer;
+	@include clearfix();
+	@include transition(background .25s ease-out);
+
+	&:hover {
+		background: $colorQuiteSecondaryHex;
+	}
+
+	&:first-child {
+		border-top: none;
+	}
+
+	&:last-child {
+		border-bottom: none;
+	}
+}
+
+.feed-title {
+	width: 65%;
+	float: left;
+	line-height: 1.25em;
+}
+
+.feed-author {
+	width: 32%;
+	float: right;
+	font-size: .9em;
+	text-align: right;
+}
+
+.feed-date {
+	font-size: .75em;
+}

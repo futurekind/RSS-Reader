@@ -1,6 +1,8 @@
 var Subscriptions = Backbone.Collection.extend({
 	comparator: 'title',
 
+	// model: 'Subscription',
+
 	url: 'scripts/feedbinApiProxy.php',
 
 	load: function(params, callback){
@@ -8,7 +10,6 @@ var Subscriptions = Backbone.Collection.extend({
 		var _this = this;
 
 		$.get(this.url, params, function(data){
-			// loading.close();
 
 			if(data.http_code == '401'){
 
@@ -17,7 +18,7 @@ var Subscriptions = Backbone.Collection.extend({
 			} else {
 
 				$.each(data, function(i, s){
-					_this.add(s);
+					_this.add(new Subscription(s));
 				});
 
 				callback(true);

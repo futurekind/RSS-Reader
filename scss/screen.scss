@@ -32,6 +32,7 @@ body {
 @import "partials/layout/app";
 @import "partials/layout/tools";
 @import "partials/layout/read";
+@import "partials/layout/details";
 
 // ***********************
 // MODULES
@@ -42,3 +43,5 @@ body {
 @import "partials/modules/title";
 @import "partials/modules/forms";
 @import "partials/modules/buttons";
+@import "partials/modules/feeds";
+@import "partials/modules/bubble";

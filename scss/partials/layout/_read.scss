@@ -6,6 +6,8 @@
 		left: 1px solid #ccc;
 		right: 1px solid #ccc;
 	}
+	position: relative;
 	float: left;
 	overflow-y: auto;
+	overflow-x: hidden;
 }
