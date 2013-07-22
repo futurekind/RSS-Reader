@@ -1,0 +1,73 @@
+.article-header {
+	margin: 0 0 1em;
+	padding: 0 0 1em;
+	border-bottom: 1px solid $colorHighlightPrimaryHex;
+	font: {
+		size: 1.75em;
+		weight: bold;
+	}
+	line-height: 1.25em;
+}
+
+.article-headline {
+	margin: .5em 0 0;
+}
+
+
+.article-close {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	font-size: 1.5em;
+	color: $colorHighlightPrimaryHex;
+	text-decoration: none;
+}
+
+.article-body {
+	position: relative;
+	font-size: 1.15em;
+	line-height: 1.5em;
+
+	h2 {
+		margin: 0 0 .8em;
+		font-size: 1.5em;
+		line-height: 1.25em;
+	}
+
+	p, ul, ol {
+		margin: 0 0 1.25em;
+	}
+
+	li {
+		margin: 0 0 0 1em;
+	}
+
+	ul li {
+		list-style: disc;
+	}
+
+	ol li {
+		list-style: decimal;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	pre {
+		margin: 0 0 1.25em;
+		padding: 1em;
+		background: tint($colorQuiteSecondaryHex, 30%);
+		overflow-y: auto;
+		font-size: .9em;
+		font-family: monospace;
+	}
+
+	a {
+		color: $colorHighlightPrimaryHex;
+
+		&:hover {
+			color: tint($colorHighlightPrimaryHex, 20%);
+		}
+	}
+}
