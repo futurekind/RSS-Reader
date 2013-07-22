@@ -52,7 +52,7 @@ var AppView = Backbone.View.extend({
 
 		var unreadFeedCount = this.feedView.feeds.length;
 
-		$('#app-reading-new-items').append('<span class="indicator">' + unreadFeedCount + '</span>');
+		$('#app-reading-new-items').append('<span class="bubble">' + unreadFeedCount + '</span>');
 	}
 
 });

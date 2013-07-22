@@ -475,3 +475,14 @@ header {
 .feed-date {
   font-size: .75em;
 }
+
+/* line 1, ../scss/partials/modules/_bubble.scss */
+.bubble {
+  margin: 0 0 0 7px;
+  padding: 0.3em;
+  border-radius: 10px;
+  display: inline-block;
+  background: #8d867a;
+  color: #fff;
+  font-size: 0.85em;
+}
