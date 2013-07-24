@@ -1,7 +1,7 @@
 <% _.each(data, function(feed){ %>
-<li class="feed" data-feed-id="<%=feed.id%>">
+<li class="feed<%=feed.attributes.read ? ' is-read' : ''%>" data-feed-id="<%=feed.id%>">
 	<p class="feed-title">
-		<%=feed.attributes.title%> <br/>
+		<%=feed.attributes.title%><br/>
 		<span class="feed-date"><%=feed.attributes.published_formated%></span>
 	</p>
 	<p class="feed-author"><%=feed.attributes.source%></p>

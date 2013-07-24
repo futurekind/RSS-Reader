@@ -24,6 +24,10 @@
 	&:last-child {
 		border-bottom: none;
 	}
+
+	&.is-read {
+		color: tint($colorTextHex, 65%);
+	}
 }
 
 .feed-title {

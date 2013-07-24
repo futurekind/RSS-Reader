@@ -11,7 +11,8 @@ var Feed = Backbone.Model.extend({
 		summary: '',
 		published: '',
 		published_formated: '',
-		created_at: ''
+		created_at: '',
+		read: false
 	}
 
 });

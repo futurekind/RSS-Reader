@@ -485,15 +485,19 @@ header {
 .feed:last-child {
   border-bottom: none;
 }
+/* line 28, ../scss/partials/modules/_feeds.scss */
+.feed.is-read {
+  color: #b7b7b7;
+}
 
-/* line 29, ../scss/partials/modules/_feeds.scss */
+/* line 33, ../scss/partials/modules/_feeds.scss */
 .feed-title {
   width: 65%;
   float: left;
   line-height: 1.25em;
 }
 
-/* line 35, ../scss/partials/modules/_feeds.scss */
+/* line 39, ../scss/partials/modules/_feeds.scss */
 .feed-author {
   width: 32%;
   float: right;
@@ -501,7 +505,7 @@ header {
   text-align: right;
 }
 
-/* line 42, ../scss/partials/modules/_feeds.scss */
+/* line 46, ../scss/partials/modules/_feeds.scss */
 .feed-date {
   font-size: .75em;
 }

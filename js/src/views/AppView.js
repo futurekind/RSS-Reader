@@ -50,9 +50,9 @@ var AppView = Backbone.View.extend({
 
 	showUnredFeedCounts: function(){
 
-		var unreadFeedCount = this.feedView.feeds.length;
+		var unreadFeeds = this.feedView.feeds.where({'read': false});
 
-		$('#app-reading-new-items').append('<span class="bubble">' + unreadFeedCount + '</span>');
+		$('#app-reading-new-items .bubble').text(unreadFeeds.length);
 	}
 
 });

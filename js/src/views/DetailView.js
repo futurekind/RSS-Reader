@@ -25,6 +25,7 @@ var DetailView = Backbone.View.extend({
 
 		setTimeout(function(){
 			_this.$el.addClass('is-visible');
+			_this.model.set('read', true);
 		}, 50);
 
 	},

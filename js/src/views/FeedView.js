@@ -27,6 +27,7 @@ var FeedView = Backbone.View.extend({
 		};
 
 		this.feeds = new Feeds();
+		this.feeds.on('change', this.render, this);
 
 		this.feeds.load(params, function(data){
 			if(data) {
