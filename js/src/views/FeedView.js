@@ -41,9 +41,7 @@ var FeedView = Backbone.View.extend({
 
 		this.$el.html(templateHtml);
 
-		$('#app-main')
-			.append(this.$el)
-			.append('<div id="app-detail-panel" class="l-details"/>');
+		$('#app-main').append(this.$el);
 
 		this.trigger('didRender');
 
@@ -51,10 +49,11 @@ var FeedView = Backbone.View.extend({
 
 	showDetailView: function(e){
 		var feedId = parseInt($(e.currentTarget).data('feed-id'), 10);
+		var model = this.feeds.get(feedId);
 
-		var content = this.feeds.get(feedId).get('content');
-
-		$('#app-detail-panel').addClass('is-visible').html(content);
+		new DetailView({
+			model: model
+		});
 
 	}
 

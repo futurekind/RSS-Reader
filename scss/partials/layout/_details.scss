@@ -9,6 +9,8 @@
 	@include box-sizing(border-box);
 
 	&.is-visible {
+		height: 100%;
 		left: 0;
+		overflow-y: auto;
 	}
 }
