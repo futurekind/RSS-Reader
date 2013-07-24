@@ -25,7 +25,7 @@ var DetailView = Backbone.View.extend({
 
 		setTimeout(function(){
 			_this.$el.addClass('is-visible');
-		}, 250);
+		}, 50);
 
 	},
 
@@ -38,7 +38,7 @@ var DetailView = Backbone.View.extend({
 
 		setTimeout(function(){
 			_this.remove();
-		}, 500);
+		}, 350);
 	}
 
 });

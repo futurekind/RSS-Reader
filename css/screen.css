@@ -116,7 +116,6 @@ header {
 .l-read {
   width: 680px;
   height: 100%;
-  padding: 10px;
   border-left: 1px solid #cccccc;
   border-right: 1px solid #cccccc;
   position: relative;
@@ -143,7 +142,9 @@ header {
 }
 /* line 11, ../scss/partials/layout/_details.scss */
 .l-details.is-visible {
+  height: 100%;
   left: 0;
+  overflow-y: auto;
 }
 
 /* line 3, ../scss/partials/modules/_tools.scss */
@@ -455,6 +456,12 @@ header {
 }
 
 /* line 1, ../scss/partials/modules/_feeds.scss */
+.feeds {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* line 6, ../scss/partials/modules/_feeds.scss */
 .feed {
   padding: 1em 0.5em;
   border-bottom: 1px solid #dddddd;
@@ -466,27 +473,27 @@ header {
   -o-transition: background 0.25s ease-out;
   transition: background 0.25s ease-out;
 }
-/* line 11, ../scss/partials/modules/_feeds.scss */
+/* line 16, ../scss/partials/modules/_feeds.scss */
 .feed:hover {
   background: #ddc7c2;
 }
-/* line 15, ../scss/partials/modules/_feeds.scss */
+/* line 20, ../scss/partials/modules/_feeds.scss */
 .feed:first-child {
   border-top: none;
 }
-/* line 19, ../scss/partials/modules/_feeds.scss */
+/* line 24, ../scss/partials/modules/_feeds.scss */
 .feed:last-child {
   border-bottom: none;
 }
 
-/* line 24, ../scss/partials/modules/_feeds.scss */
+/* line 29, ../scss/partials/modules/_feeds.scss */
 .feed-title {
   width: 65%;
   float: left;
   line-height: 1.25em;
 }
 
-/* line 30, ../scss/partials/modules/_feeds.scss */
+/* line 35, ../scss/partials/modules/_feeds.scss */
 .feed-author {
   width: 32%;
   float: right;
@@ -494,7 +501,7 @@ header {
   text-align: right;
 }
 
-/* line 37, ../scss/partials/modules/_feeds.scss */
+/* line 42, ../scss/partials/modules/_feeds.scss */
 .feed-date {
   font-size: .75em;
 }
