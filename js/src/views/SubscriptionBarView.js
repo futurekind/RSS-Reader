@@ -11,8 +11,7 @@ var SubscriptionBarView = Backbone.View.extend({
 		var _this = this;
 
 		var params = {
-			method: 'getSubscriptions',
-			userpass: App.appView.apiUser + ':' + App.appView.apiPassword
+			method: 'getSubscriptions'
 		};
 
 		this.subscriptions = new Subscriptions();

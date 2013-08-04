@@ -24,15 +24,23 @@ var LoginFormView = Backbone.View.extend({
 
 	login: function(e) {
 		e.preventDefault();
-		App.appView.apiUser = $('#app-username').val();
-		App.appView.apiPassword = $('#app-password').val();
 
-		localStorage.setItem(App.appView.appIdentifier + 'username', App.appView.apiUser);
-		localStorage.setItem(App.appView.appIdentifier + 'password', App.appView.apiPassword);
+		var params = {
+			method: 'setSessionParameter',
+			username: $('#app-username').val(),
+			password: $('#app-password').val()
+		};
 
-		App.appView.checkForUsernameAndPassword();
+		var _this = this;
 
-		this.remove();
+		$.post('scripts/feedbinApiProxy.php', params, function(data){
+			if(data == 'success') {
+				App.appView.checkForUsernameAndPassword();
+				_this.remove();
+			}
+		});
+
+
 	}
 
 });
