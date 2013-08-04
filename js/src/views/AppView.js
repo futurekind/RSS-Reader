@@ -14,12 +14,7 @@ var AppView = Backbone.View.extend({
 	},
 
 	checkForUsernameAndPassword: function(){
-		if(!window.localStorage) {
-
-		} else {
-			this.render();
-		}
-
+		// this.render();
 	},
 
 	render: function(){
