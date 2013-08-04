@@ -11,8 +11,6 @@ var AppView = Backbone.View.extend({
 
 	initialize: function(){
 		this.setElement($('#app'));
-		this.apiUser = localStorage.getItem(this.appIdentifier + 'username');
-		this.apiPassword = localStorage.getItem(this.appIdentifier + 'password');
 	},
 
 	checkForUsernameAndPassword: function(){
