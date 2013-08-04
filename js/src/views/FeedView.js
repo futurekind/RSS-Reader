@@ -27,13 +27,21 @@ var FeedView = Backbone.View.extend({
 		};
 
 		this.feeds = new Feeds();
-		this.feeds.on('change', this.render, this);
+		this.feeds.on('change:read', function(model){
+			var $li = _this.$el.find('li[data-feed-id="' + model.id + '"]');
+			$li.addClass('is-read');
+			_this.trigger('didSetReadCount');
+		});
 
 		this.feeds.load(params, function(data){
 			if(data) {
 				_this.render();
 			}
 		});
+	},
+
+	updateReadCount: function(){
+		console.log(this);
 	},
 
 	render: function(){

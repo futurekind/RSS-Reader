@@ -44,6 +44,10 @@ var AppView = Backbone.View.extend({
 			_this.loadingView.close();
 			this.showUnredFeedCounts();
 		});
+
+		this.listenTo(this.feedView, 'didSetReadCount', function(){
+			this.showUnredFeedCounts();
+		});
 	},
 
 	showUnredFeedCounts: function(){
