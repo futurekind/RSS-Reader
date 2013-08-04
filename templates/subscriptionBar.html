@@ -6,6 +6,9 @@
 			<li>
 				<span class="tools-item" data-feed-id="<%=s.attributes.feed_id%>" data-id="<%=s.id%>">
 					<%=s.attributes.title%>
+					<% if(s.attributes.count > 0) { %>
+						<span class="bubble"><%=s.attributes.count%></span>
+					<% } %>
 				</span>
 			</li>
 			<% }); %>

@@ -16,12 +16,14 @@ var SubscriptionBarView = Backbone.View.extend({
 
 		this.subscriptions = new Subscriptions();
 
-		this.subscriptions.on('change', this.render, this);
+		this.subscriptions.on('change', function(){
+			_this.render(false);
+		}, this);
 
 		this.subscriptions.load(params, function(data){
 
 			if(data) {
-				_this.render();
+				_this.render(true);
 			} else {
 				App.appView.loadingView.close();
 				new LoginFormView();
@@ -31,7 +33,7 @@ var SubscriptionBarView = Backbone.View.extend({
 
 	},
 
-	render: function() {
+	render: function(withTrigger) {
 
 		var templateHtml = _.template(this.template, {data: this.subscriptions.models});
 
@@ -39,7 +41,9 @@ var SubscriptionBarView = Backbone.View.extend({
 
 		$('#app-subscriptions-bar').append(this.$el);
 
-		this.trigger('didRender');
+		if(withTrigger){
+			this.trigger('didRender');
+		}
 
 	}
 });

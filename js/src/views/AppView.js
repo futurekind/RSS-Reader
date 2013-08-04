@@ -43,10 +43,12 @@ var AppView = Backbone.View.extend({
 		this.listenTo(this.feedView, 'didRender', function(){
 			_this.loadingView.close();
 			this.showUnredFeedCounts();
+			this.showSubscriptionFeedCounts();
 		});
 
 		this.listenTo(this.feedView, 'didSetReadCount', function(){
 			this.showUnredFeedCounts();
+			this.showSubscriptionFeedCounts();
 		});
 	},
 
@@ -55,6 +57,19 @@ var AppView = Backbone.View.extend({
 		var unreadFeeds = this.feedView.feeds.where({'read': false});
 
 		$('#app-reading-new-items .bubble').text(unreadFeeds.length);
+	},
+
+	showSubscriptionFeedCounts: function() {
+		var _this = this;
+		var subscriptions = this.subscriptionBarView.subscriptions.models;
+
+		$.each(subscriptions, function(i, s){
+			var feeds = _this.feedView.feeds.where({
+				'feed_id': s.attributes.feed_id,
+				'read': false
+			});
+			s.set('count', feeds.length);
+		});
 	}
 
 });

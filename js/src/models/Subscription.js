@@ -6,7 +6,8 @@ var Subscription = Backbone.Model.extend({
 		'feed_id': 0,
 		'title': '',
 		'feed_url': '',
-		'site_url': ''
+		'site_url': '',
+		'count': 0
 	},
 
 	test: function(){
