@@ -166,7 +166,7 @@ header {
 }
 /* line 19, ../scss/partials/modules/_tools.scss */
 .tools .tools-item.active {
-  font-weight: bold;
+  color: #878d67;
 }
 
 /* line 1, ../scss/partials/modules/_textfield.scss */
@@ -513,12 +513,13 @@ header {
 /* line 1, ../scss/partials/modules/_bubble.scss */
 .bubble {
   margin: 0 0 0 7px;
-  padding: 0.3em;
-  border-radius: 10px;
+  padding: 0.4em;
+  border-radius: 20px;
   display: inline-block;
   background: #8d867a;
   color: #fff;
-  font-size: 0.85em;
+  font-size: 0.75em;
+  font-family: Arial;
 }
 
 /* line 1, ../scss/partials/modules/_article.scss */
