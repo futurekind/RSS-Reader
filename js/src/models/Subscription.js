@@ -1,17 +1,22 @@
-var Subscription = Backbone.Model.extend({
+define([
+	'underscore',
+	'backbone'
+], function(_, Backbone){
 
-	defaults: {
-		'id': 0,
-		'created_at': '',
-		'feed_id': 0,
-		'title': '',
-		'feed_url': '',
-		'site_url': '',
-		'count': 0
-	},
+	var Subscription = Backbone.Model.extend({
 
-	test: function(){
-		console.log(this);
-	}
+		defaults: {
+			'id': 0,
+			'created_at': '',
+			'feed_id': 0,
+			'title': '',
+			'feed_url': '',
+			'site_url': '',
+			'count': 0
+		}
+
+	});
+
+	return Subscription;
 
 });

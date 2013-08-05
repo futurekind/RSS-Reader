@@ -1,31 +1,42 @@
-var Subscriptions = Backbone.Collection.extend({
-	comparator: 'title',
+define([
+	'jquery',
+	'underscore',
+	'backbone',
+	'models/Subscription'
+], function($, _, Backbone, Subscription){
 
-	// model: 'Subscription',
+	var Subscriptions = Backbone.Collection.extend({
+		comparator: 'title',
 
-	url: 'scripts/feedbinApiProxy.php',
+		// model: 'Subscription',
 
-	load: function(params, callback){
+		url: 'scripts/feedbinApiProxy.php',
 
-		var _this = this;
+		load: function(params, callback){
 
-		$.get(this.url, params, function(data){
+			var _this = this;
 
-			if(data.http_code == '401'){
+			$.get(this.url, params, function(data){
 
-				callback(false);
+				if(data.http_code == '401'){
 
-			} else {
+					callback(false);
 
-				$.each(data, function(i, s){
-					_this.add(new Subscription(s));
-				});
+				} else {
 
-				callback(true);
+					$.each(data, function(i, s){
+						_this.add(new Subscription(s));
+					});
 
-			}
+					callback(true);
 
-		}, 'json');
+				}
 
-	}
+			}, 'json');
+
+		}
+	});
+
+	return Subscriptions;
+
 });

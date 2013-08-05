@@ -1,49 +1,56 @@
-var SubscriptionBarView = Backbone.View.extend({
+define(['jquery', 'underscore', 'backbone', 'collections/Subscriptions', 'text!../../../templates/subscriptionBar.html'],
+	function($, _, Backbone, Subscriptions ,viewTemplate) {
 
-	subscriptions: null,
+		var SubscriptionBarView = Backbone.View.extend({
 
-	initialize: function(){
-		this.template = App.loadTemplate('templates/subscriptionBar.html');
-	},
+			subscriptions: null,
 
-	loadSubscriptions: function(){
+			initialize: function(){
+				this.template = viewTemplate;
+			},
 
-		var _this = this;
+			loadSubscriptions: function(){
 
-		var params = {
-			method: 'getSubscriptions'
-		};
+				var _this = this;
 
-		this.subscriptions = new Subscriptions();
+				var params = {
+					method: 'getSubscriptions'
+				};
 
-		this.subscriptions.on('change', function(){
-			_this.render(false);
-		}, this);
+				this.subscriptions = new Subscriptions();
 
-		this.subscriptions.load(params, function(data){
+				this.subscriptions.on('change', function(){
+					_this.render(false);
+				}, this);
 
-			if(data) {
-				_this.render(true);
-			} else {
-				App.appView.loadingView.close();
-				new LoginFormView();
+				this.subscriptions.load(params, function(data){
+
+					if(data) {
+						_this.render(true);
+					} else {
+						_this.trigger('didLoadWithError');
+					}
+
+				});
+
+			},
+
+			render: function(withTrigger) {
+
+				var templateHtml = _.template(this.template, {data: this.subscriptions.models});
+
+				this.$el.html(templateHtml);
+
+				$('#app-subscriptions-bar').append(this.$el);
+
+				if(withTrigger){
+					this.trigger('didRender');
+				}
+
 			}
-
 		});
 
-	},
-
-	render: function(withTrigger) {
-
-		var templateHtml = _.template(this.template, {data: this.subscriptions.models});
-
-		this.$el.html(templateHtml);
-
-		$('#app-subscriptions-bar').append(this.$el);
-
-		if(withTrigger){
-			this.trigger('didRender');
-		}
+		return SubscriptionBarView;
 
 	}
-});
+);

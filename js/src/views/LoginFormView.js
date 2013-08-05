@@ -1,46 +1,55 @@
-var LoginFormView = Backbone.View.extend({
+define([
+	'jquery',
+	'underscore',
+	'backbone',
+	'text!../../../templates/loginForm.html'
+],function($, _, Backbone, viewTemplate){
 
-	tagName: 'form',
-	className: 'form form-loginForm',
+	var LoginFormView = Backbone.View.extend({
 
-	initialize: function(){
-		this.template = App.loadTemplate('templates/loginForm.html');
-		this.render();
-	},
+		tagName: 'form',
+		className: 'form form-loginForm',
 
-	render: function(){
-		var _this = this;
+		initialize: function(){
+			this.template = viewTemplate;
+			this.render();
+		},
 
-		var html = _.template(this.template);
-		this.$el.html(html);
+		render: function(){
+			var _this = this;
 
-		$('#app-main').empty().append(this.$el);
+			var html = _.template(this.template);
+			this.$el.html(html);
 
-		this.$el.on('submit', function(e){
-			_this.login(e);
-		});
+			this.$el.on('submit', function(e){
+				_this.login(e);
+			});
 
-	},
+		},
 
-	login: function(e) {
-		e.preventDefault();
+		login: function(e) {
+			e.preventDefault();
 
-		var params = {
-			method: 'setSessionParameter',
-			username: $('#app-username').val(),
-			password: $('#app-password').val()
-		};
+			var params = {
+				method: 'setSessionParameter',
+				username: $('#app-username').val(),
+				password: $('#app-password').val()
+			};
 
-		var _this = this;
+			var _this = this;
 
-		$.post('scripts/feedbinApiProxy.php', params, function(data){
-			if(data == 'success') {
-				App.appView.checkForUsernameAndPassword();
-				_this.remove();
-			}
-		});
+			$.post('scripts/feedbinApiProxy.php', params, function(data){
+				if(data == 'success') {
+					_this.trigger('didLoginWithSuccess');
+				}
+			});
 
+
+		}
+
+	});
+
+	return LoginFormView;
 
 	}
-
-});
+)

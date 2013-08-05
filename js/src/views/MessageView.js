@@ -1,53 +1,58 @@
-var MessageView = Backbone.View.extend({
+define(['jquery', 'underscore', 'backbone', 'text!../../../templates/messageView.html'],
 
-	className: 'message',
+	function($, _, Backbone, viewTemplate){
+		var MessageView = Backbone.View.extend({
 
-	events: {
-		'click .message-close': 'close'
-	},
+			className: 'message',
 
-	options: {
-		type: 'plain',
-		title: '',
-		body: '',
-		showLoadingIndicator: false,
-		showCloseButton: false
-	},
+			events: {
+				'click .message-close': 'close'
+			},
 
-	initialize: function(){
-		this.template = App.loadTemplate('templates/messageView.html');
-		this.render();
-	},
+			options: {
+				type: 'plain',
+				title: '',
+				body: '',
+				showLoadingIndicator: false,
+				showCloseButton: false
+			},
 
-	render: function(){
+			initialize: function(){
+				this.template = viewTemplate;
+				this.render();
+			},
 
-		var _this = this;
+			render: function(){
 
-		var html = _.template(this.template, this.options);
+				var _this = this;
 
-		this.$el
-			.addClass('message-' + this.options.type)
-			.html(html);
+				var html = _.template(this.template, this.options);
 
-		App.appView.$el.append(this.$el);
+				this.$el
+					.addClass('message-' + this.options.type)
+					.html(html);
 
-		setTimeout(function(){
-			_this.$el.addClass('message-active');
-		}, 250);
-	},
+				setTimeout(function(){
+					_this.$el.addClass('message-active');
+				}, 250);
+			},
 
-	close: function(e){
-		if(e){
-			e.preventDefault();
-		}
+			close: function(e){
+				if(e){
+					e.preventDefault();
+				}
 
-		var _this = this;
+				var _this = this;
 
-		this.$el.removeClass('message-active');
+				this.$el.removeClass('message-active');
 
-		setTimeout(function(){
-			_this.remove();
-		}, 500);
+				setTimeout(function(){
+					_this.remove();
+				}, 500);
+			}
+
+		});
+
+		return MessageView;
 	}
-
-});
+);

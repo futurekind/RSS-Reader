@@ -30,31 +30,6 @@
 		</div>
 		<div class="l-tools" id="app-subscriptions-bar"></div>
 	</div>
-
-	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="js/build/zappscription.js"></script>
-	<script>
-		window.App = {
-			loadTemplate: function(url){
-				var data = "Kann Template " + url + " nicht laden.";
-
-				$.ajax({
-					async: false,
-					url: url,
-					success: function(response) {
-						data = response;
-					}
-				});
-
-				return data;
-			},
-
-			appView: null
-		}
-
-		App.appView = new AppView();
-		App.appView.checkForUsernameAndPassword();
-
-	</script>
+	<script src="js/vendor/require.2.1.8.min.js" data-main="js/src/app.js"></script>
 </body>
 </html>
