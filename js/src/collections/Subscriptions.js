@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'models/Subscription'
+	'build/Subscription'
 ], function($, _, Backbone, Subscription){
 
 	var Subscriptions = Backbone.Collection.extend({

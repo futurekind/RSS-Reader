@@ -11,16 +11,16 @@ require.config({
 	},
 
 	paths: {
-		jquery: '../vendor/jquery-1.10.2.min',
-		underscore: '../vendor/underscore.min',
-		backbone: '../vendor/backbone.1.0.0.min'
+		jquery: 'vendor/jquery-1.10.2.min',
+		underscore: 'vendor/underscore.min',
+		backbone: 'vendor/backbone.1.0.0.min'
 	},
 
 	namespace: 'App'
 });
 
 require([
-	'views/AppView'
+	'build/AppView'
 ], function(AppView){
 	var app = new AppView();
 	app.render();

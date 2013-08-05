@@ -2,8 +2,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'views/MessageView',
-	'views/SubscriptionBarView'
+	'build/MessageView',
+	'build/SubscriptionBarView'
 ], function($, _, Backbone, MessageView, SubscriptionBarView, LoginFormView){
 
 	var AppView = Backbone.View.extend({
@@ -38,7 +38,7 @@ define([
 			this.subscriptionBarView.loadSubscriptions();
 
 			this.listenTo(this.subscriptionBarView, 'didLoadWithError', function(){
-				require(['views/LoginFormView'], function(LoginFormView){
+				require(['build/LoginFormView'], function(LoginFormView){
 					_this.loadingView.close();
 					_this.loginView = new LoginFormView();
 					_this.$el.find('#app-main').empty().append(_this.loginView.$el);

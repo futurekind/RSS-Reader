@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'collections/Subscriptions', 'text!../../../templates/subscriptionBar.html'],
+define(['jquery', 'underscore', 'backbone', 'build/Subscriptions', 'text!templates/subscriptionBar.html'],
 	function($, _, Backbone, Subscriptions ,viewTemplate) {
 
 		var SubscriptionBarView = Backbone.View.extend({

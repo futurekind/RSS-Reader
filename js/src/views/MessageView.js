@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'text!../../../templates/messageView.html'],
+define(['jquery', 'underscore', 'backbone', 'text!templates/messageView.html'],
 
 	function($, _, Backbone, viewTemplate){
 		var MessageView = Backbone.View.extend({

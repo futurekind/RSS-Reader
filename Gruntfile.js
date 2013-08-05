@@ -5,28 +5,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
-    concat: {
-      options: {
-        banner: '<%= banner %>',
-        stripBanners: true
-      },
-      dist: {
-        src: ['js/vendor/underscore.min.js', 'js/vendor/backbone.1.0.0.min.js', 'js/vendor/moment.min.js', 'js/src/**/*.js'],
-        dest: 'js/build/<%= pkg.name %>.js'
-      }
-    },
     uglify: {
-      options: {
-        banner: '<%= banner %>'
-      },
       dist: {
-        src: '<%= concat.dist.dest %>',
-        dest: 'js/build/<%= pkg.name %>.min.js'
+        files: [
+          {
+            src: ['js/src/**/*.js'],
+            dest: 'js/build/',
+            flatten: true,
+            expand: true
+          }
+        ]
       }
     },
     jshint: {
@@ -51,7 +40,7 @@ module.exports = function(grunt) {
       },
       lib_test: {
         files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint', 'concat']
+        tasks: ['jshint', 'uglify']
       },
       css_files: {
         files: 'scss/**/*.scss',
@@ -61,13 +50,12 @@ module.exports = function(grunt) {
   });
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'compass']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'compass']);
 
 };
