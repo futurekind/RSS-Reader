@@ -3,8 +3,7 @@ define([
 	'underscore',
 	'backbone',
 	'views/MessageView',
-	'views/SubscriptionBarView',
-	'views/LoginFormView'
+	'views/SubscriptionBarView'
 ], function($, _, Backbone, MessageView, SubscriptionBarView, LoginFormView){
 
 	var AppView = Backbone.View.extend({
@@ -39,16 +38,18 @@ define([
 			this.subscriptionBarView.loadSubscriptions();
 
 			this.listenTo(this.subscriptionBarView, 'didLoadWithError', function(){
-				this.loadingView.close();
-				this.loginView = new LoginFormView();
-				this.$el.find('#app-main').empty().append(this.loginView.$el);
+				require(['views/LoginFormView'], function(LoginFormView){
+					_this.loadingView.close();
+					_this.loginView = new LoginFormView();
+					_this.$el.find('#app-main').empty().append(_this.loginView.$el);
 
-				this.listenTo(this.loginView, 'didLoginWithSuccess', function(){
-					this.loginView.remove();
-					this.render();
-				}, this);
+					_this.listenTo(_this.loginView, 'didLoginWithSuccess', function(){
+						_this.loginView.remove();
+						_this.render();
+					});
+				});
 
-			}, this);
+			});
 
 			this.listenTo(this.subscriptionBarView, 'didRender', function(){
 				_this.loadingView.close();
